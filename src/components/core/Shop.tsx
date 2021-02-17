@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 const Shop = () => {
   const state = useSelector(state => state)
   return (
-    <Layout>
+    <Layout title="拉勾商城" subTitle="挑选你喜欢的商品吧">
       Shop{JSON.stringify(state)}
     </Layout>
   )
