@@ -5,6 +5,7 @@ import { SIGNUP, SignupAction, signupFail, signupSuccess } from '../actions/auth
 
 function* handleSignup (action: SignupAction) {
   try {
+    console.log('------>', API)
     yield axios.post(`${API}/signup`, action.payload)
     yield put(signupSuccess())
   } catch (e) {
