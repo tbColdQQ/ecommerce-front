@@ -1,4 +1,5 @@
 import { Button, Card, Col, Image, Row, Typography } from 'antd'
+import moment from 'moment'
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { API } from '../../config'
@@ -28,8 +29,8 @@ const ProductItem: FC<Props> = ({product}) => {
         <Col span="12" style={{textAlign: 'right'}}>价格: {product.price}</Col>
       </Row>
       <Row>
-        <Col span="12">上架时间: {product.createdAt}</Col>
-        <Col span="12" style={{textAlign: 'right'}}>所属分类: {product.category}</Col>
+        <Col span="12">上架时间: {moment(product.createdAt).format('YYYY-mm-DD')}</Col>
+        <Col span="12" style={{textAlign: 'right'}}>所属分类: {product.category.name}</Col>
       </Row>
     </Card>
   )

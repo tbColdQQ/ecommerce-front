@@ -31,4 +31,34 @@ export const getProductSuccess = (payload: Product[], sortBy: string): GetProduc
   sortBy
 })
 
-export type ProductUnionType = GetProductAction | GetProductSuccessAction
+export const SEARCH_PRODUCT = 'SEARCH_PRODUCT'
+export const SEARCH_PRODUCT_SUCCESS = 'SEARCH_PRODUCT_SUCCESS'
+
+export interface SearchProductAction {
+  type: typeof SEARCH_PRODUCT,
+  payload: {
+    category: string,
+    search: string
+  }
+}
+
+export interface SearchProductSuccessAction {
+  type: typeof SEARCH_PRODUCT_SUCCESS,
+  products: Product[]
+}
+
+export const searchProduct = (payload: {category: string, search: string}): SearchProductAction => {
+  return {
+    type: SEARCH_PRODUCT,
+    payload
+  }
+}
+
+export const searchProductSuccess = (products: Product[]): SearchProductSuccessAction => {
+  return {
+    type: SEARCH_PRODUCT_SUCCESS,
+    products
+  }
+}
+
+export type ProductUnionType = GetProductAction | GetProductSuccessAction | SearchProductAction | SearchProductSuccessAction
