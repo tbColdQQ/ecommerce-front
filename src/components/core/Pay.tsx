@@ -25,7 +25,7 @@ const Pay: FC<Props> = ({totalPrice, address, cart}) => {
       userId: (isAuth() as Jwt).user._id
     }).then(response => {
       console.log(response)
-      location.href = response.data.result
+      window.location.href = response.data.result
     })
   }
 

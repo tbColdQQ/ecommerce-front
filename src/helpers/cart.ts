@@ -62,3 +62,12 @@ export const deleteItem = (productId: string) => {
     return cart
   }
 }
+
+export const itemCount = () => {
+  if (typeof window !== 'undefined') {
+    if (localStorage.getItem('cart')) {
+      return JSON.parse(localStorage.getItem('cart')!).length
+    }
+  }
+  return 0
+}
